@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://clearlove443.github.io.v2/push_blog_v2/sitemap.xml
+Sitemap: https://clearlove443.github.io.v2/v2/sitemap.xml
