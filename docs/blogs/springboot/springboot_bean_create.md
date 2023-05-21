@@ -146,4 +146,4 @@ public class BeanLoadConfig {
 
 ## bean 的使用
 
-参考 [Spring 中的三种依赖注入方式](https://clearlove443.github.io/blogs/2021/springboot_injection.html)
+参考 [Spring 中的三种依赖注入方式](https://clearlove443.github.io/v2/blogs/2021/springboot_injection.html)

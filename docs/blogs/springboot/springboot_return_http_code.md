@@ -58,7 +58,7 @@ Connection: close
 
 虽然上面这种使用姿势可以设置 http code，但是这种使用姿势有什么意义呢？
 
-如果看过 web 系列教程中的：[SpringBoot 系列教程 web 篇之全局异常处理](https://clearlove443.github.io/blogs/2021/springBoot_handle_global_exception.html) 可能就会有一些映象，配合`@ExceptionHandler`来根据异常返回对应的状态码
+如果看过 web 系列教程中的：[SpringBoot 系列教程 web 篇之全局异常处理](https://clearlove443.github.io/v2/blogs/2021/springBoot_handle_global_exception.html) 可能就会有一些映象，配合`@ExceptionHandler`来根据异常返回对应的状态码
 
 一个推荐的使用姿势，下面表示当你的业务逻辑中出现数组越界时，返回 500 的状态码以及完整的堆栈信息
 
