@@ -50,7 +50,7 @@ Java8 的 stream 接口极大地减少了 for 循环写法的复杂性，stream 
 
 执行结果：
 
-```
+```text
 串行执行的大小：10000
 并行执行的大小：984
 加锁并行执行的大小：10000
@@ -71,7 +71,9 @@ collect并行执行的大小：10000
 
 在 Javadoc 中也对 stream 的并发操作进行了相关介绍：
 
+```text
     The Collections Framework provides synchronization wrappers, which add automatic synchronization to an arbitrary collection, making it thread-safe.
+```
 
 Collections 框架提供了同步的包装，使得其中的操作线程安全。
 
@@ -119,11 +121,11 @@ Java Streams 默认使用同一个 ForkJoinPool 执行并行流。 ForkJoinPool 
 
 Stream.reduce 顺序执行的时候是这样的：
 
-![1](/40c3b318a03e4490b3fb3753a2d0e78f_tplv-k3u1fbpfcp-watermark.awebp)
+![1](/40c3b318a03e4490b3fb3753a2d0e78f_tplv-k3u1fbpfcp-watermark.png)
 
 并行流的算法其实也非常简单，我们假设任务仅被分成 2 部分：
 
-![2](/fc97c5dceef24e599ba5ecb96669eace_tplv-k3u1fbpfcp-watermark.awebp)
+![2](/fc97c5dceef24e599ba5ecb96669eace_tplv-k3u1fbpfcp-watermark.png)
 
 每个块都多乘了一次 m ，并行流给每个任务块都应用了给定的标识 m 。知道了这个刚刚的 bug 我们也就可以解决了。我们可以将每个标识 m 都采用 1 ，乘 1 并不会影响程序结果，然后得到最后的结果只会再乘以 m ：
 

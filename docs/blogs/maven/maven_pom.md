@@ -136,7 +136,7 @@ isTop: false
 mvn assembly:assembly
 ```
 
-打包后会同时生成两个 JAR 包，其中后缀为 jar-with-dependencies 是含有第三方依赖的 JAR 包，后缀是由 assembly.xml 中 <id> 标签指定的，可以自定义修改。
+打包后会同时生成两个 JAR 包，其中后缀为 jar-with-dependencies 是含有第三方依赖的 JAR 包，后缀是由 assembly.xml 中 `<id>` 标签指定的，可以自定义修改。
 
 - 运行命令
 
@@ -211,7 +211,7 @@ mvn package
 
 - 运行命令
 
-* 单个 main 方法并且设置了 mainClass
+- 单个 main 方法并且设置了 mainClass
 
 ```bash
 java -jar jarfile

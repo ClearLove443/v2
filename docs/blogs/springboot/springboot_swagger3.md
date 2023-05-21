@@ -9,7 +9,7 @@ feature:
 isTop: false
 ---
 
-# 前言
+## 前言
 
 swagger3 基于 openApi3.
 
@@ -19,12 +19,12 @@ swagger3 基于 openApi3.
 既然存在痛点，那么必须会出现解决此痛点的产品，这就是 Swagger，目前已经更新到 Swagger3 版本了。如果你还停留在 Swagger2，建议升级到 Swagger3，整体 UI 风格及交互友好了不少。
 本篇将围绕 Swagger3 与 SpringBoot 的集成和离线文档的生成来进行讲解。
 
-# Swagger 简介
+## Swagger 简介
 
 Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许 API 来始终保持同步。
 官网：[swagger.io](https://swagger.io/)
 
-# Swagger 解决的痛点
+## Swagger 解决的痛点
 
 传统方式提供文档有以下痛点：
 
@@ -40,7 +40,7 @@ Swagger 是一个规范和完整的框架，用于生成、描述、调用和可
 - 一致性 (接口信息一致，不会因接口文档版本问题出现分歧)
 - 可测性 (可直接基于接口文档进行测试)
 
-# Swagger3 的改变
+## Swagger3 的改变
 
 Swagger3.0 的改动，官方文档总结如下几点：
 
@@ -48,26 +48,26 @@ Swagger3.0 的改动，官方文档总结如下几点：
 - 删除所有@EnableSwagger2...注解；
 - 添加了 springfox-boot-starter 依赖项；
 - 移除了 guava 等第三方依赖；
-- 文档访问地址改为 http://ip:port/project/swagger-ui/index.html。
+- 文档访问地址改为 <http://ip:port/project/swagger-ui/index.html。>
 
 下面就来实战使用一下吧。
 
-# Swagger2 Demo
+## Swagger2 Demo
 
 [SpringBoot 整合 Swagger2 实现在线 API 文档](https://blog.csdn.net/csp732171109/article/details/124180234)
 
-# Swagger2 VS Swagger3
+## Swagger2 VS Swagger3
 
 | Swagger3                                                             | Swagger2                        | 注解说明                                               |
 | :------------------------------------------------------------------- | :------------------------------ | :----------------------------------------------------- |
 | @Tag(name = “接口类描述”)                                            | @Api                            | Controller 类                                          |
 | @Operation(summary =“接口方法描述”)                                  | @ApiOperation                   | Controller 方法                                        |
 | @Parameters                                                          | @ApiImplicitParams              | Controller 方法                                        |
-| @Parameter(description=“参数描述”)                                   | @ApiImplicitParam</br>@ApiParam | Controller 方法上 @Parameters 里 Controller 方法的参数 |
-| @Parameter(hidden = true) </br>@Operation(hidden = true)</br>@Hidden | @ApiIgnore                      | 排除或隐藏 api                                         |
-| @Schema                                                              | @ApiModel</br>@ApiModelProperty | DTO 实体</br>DTO 实体属性                              |
+| @Parameter(description=“参数描述”)                                   | @ApiImplicitParam<br>@ApiParam | Controller 方法上 @Parameters 里 Controller 方法的参数 |
+| @Parameter(hidden = true) <br>@Operation(hidden = true)<br>@Hidden | @ApiIgnore                      | 排除或隐藏 api                                         |
+| @Schema                                                              | @ApiModel<br>@ApiModelProperty | DTO 实体<br>DTO 实体属性                              |
 
-## pom.xml
+### pom.xml
 
 - swagger2
 
@@ -96,11 +96,11 @@ Swagger3.0 的改动，官方文档总结如下几点：
 </dependency>
 ```
 
-# SpringBoot 集成 Swagger3
+## SpringBoot 集成 Swagger3
 
 SpringBoot 集成 Swagger3 与 SpringBoot 集成其他框架的套路基本一致，通常包括：引入依赖、指定配置文件、创建配置类和使用。
 
-## 指定配置文件
+### 指定配置文件
 
 通常情况下 swagger 只能在开发环境或测试环境下开启，生产环境下需要进行关闭的。而 swagger 的开启与关闭可在 application.properties 中进行配置：
 
@@ -109,7 +109,7 @@ SpringBoot 集成 Swagger3 与 SpringBoot 集成其他框架的套路基本一�
 springfox.documentation.swagger-ui.enabled=true
 ```
 
-## 配置类
+### 配置类
 
 通过@EnableOpenApi 注解启动用 Swagger 的使用，同时在配置类中对 Swagger 的通用参数进行配置。
 
@@ -173,7 +173,7 @@ public class Swagger3Config {
 
 通过以上配置已经完成了 Spring Boot 与 Swagger 的集成，下面展示一下如何在业务逻辑中进行使用。
 
-# 业务中使用
+## 业务中使用
 
 创建两个实体类 Goods（商品类）和 CommonResult（通用返回结果类）。
 
@@ -303,7 +303,7 @@ public class OrderController {
 }
 ```
 
-# 展示效果
+## 展示效果
 
 完成集成，启动 SpringBoot 项目，在访问地址：
 
@@ -311,11 +311,11 @@ public class OrderController {
 http://127.0.0.1:8080/swagger-ui/index.html
 ```
 
-## Swagger3 注解使用说明
+### Swagger3 注解使用说明
 
 经过上述实例之后，我们知道大多数 API 是如何使用的了，这了再汇总一下相关 API 的功能：
 
-```
+```text
 @Api：用在请求的类上，表示对类的说明
     tags="说明该类的作用，可以在UI界面上看到的注解"
     value="该参数没什么意义，在UI界面上也看到，所以不需要配置"
@@ -351,13 +351,13 @@ http://127.0.0.1:8080/swagger-ui/index.html
 
 ```
 
-# 导出离线文档
+## 导出离线文档
 
 Swagger 为我们提供了方便的在线文档支持，但某些场景下我们需要把接口文档提供给合作人员，而不是直接给一个地址。此时，我们就需要将接口文档导出为离线文档。
 
 这里我们集成增强文档 knife4j 来实现离线文档的导出
 
-## 添加 knife4j 依赖
+### 添加 knife4j 依赖
 
 在 pom.xml 中增加 knife4j 的依赖：
 
@@ -369,7 +369,7 @@ Swagger 为我们提供了方便的在线文档支持，但某些场景下我们
 </dependency>
 ```
 
-## 启动 knife4j
+### 启动 knife4j
 
 在上面配置 Swagger 的 Swagger3Config 中添加@EnableKnife4j 注解，该注解可以开启 knife4j 的增强功能。
 
@@ -382,4 +382,4 @@ public class Swagger3Config {
 }
 ```
 
-此时，如果依旧访问 http://localhost:8080/swagger-ui/index.html 会发现显示并没有变化。这里我们需要访问 http://localhost:8080/doc.html。
+此时，如果依旧访问 <http://localhost:8080/swagger-ui/index.html> 会发现显示并没有变化。这里我们需要访问 <http://localhost:8080/doc.html。>

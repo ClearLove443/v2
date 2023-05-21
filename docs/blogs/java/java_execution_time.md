@@ -11,7 +11,7 @@ isTop: false
 
 我们在日常开发中经常需要测试一些代码的执行时间，但又不想使用向 JMH（Java Microbenchmark Harness，Java 微基准测试套件）这么重的测试框架，所以本文就汇总了一些 Java 中比较常用的执行时间统计方法，总共包含以下 6 种，如下图所示：
 
-![execution time](/1734b1eef8bd5f34_tplv-t2oaga2asx-watermark.awebp)
+![execution time](/1734b1eef8bd5f34_tplv-t2oaga2asx-watermark.png)
 
 ## 方法一：System.currentTimeMillis
 

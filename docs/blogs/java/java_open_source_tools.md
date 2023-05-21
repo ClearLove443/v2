@@ -11,7 +11,7 @@ isTop: false
 
 下文主要分享这几个方向的常用工具类：
 
-![java 常用工具类](/17206977fda39e53_tplv-t2oaga2asx-watermark.awebp)
+![java 常用工具类](/17206977fda39e53_tplv-t2oaga2asx-watermark.png)
 
 ## 字符串相关工具类
 
@@ -64,7 +64,7 @@ StringUtils.isEmpty(" ")       = false；
 
 判断字符串是否为空，使用频率非常高，这里大家可以使用 IDEA Prefix 的功能，输入直接生成判空语句。
 
-![IDEA Prefix](/17206978783702e8_tplv-t2oaga2asx-watermark.awebp)
+![IDEA Prefix](/17206978783702e8_tplv-t2oaga2asx-watermark.png)
 
 ### 字符串固定长度
 
@@ -364,7 +364,7 @@ List<String> lines = new ArrayList<>();
 FileUtils.writeLines(file, "UTF-8", lines);
 ```
 
-### 特殊需求：FileUtils/IOUtils 中写入文本的方法看上去都是只能一次性的批量写入多行，并覆盖原有的文本，如果我们需要追加写入怎么办呢。
+### 特殊需求：FileUtils/IOUtils 中写入文本的方法看上去都是只能一次性的批量写入多行，并覆盖原有的文本，如果我们需要追加写入怎么办呢
 
 其实在 IOUtils 中是提供了这样的方法的
 
