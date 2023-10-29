@@ -18,6 +18,12 @@ isTop: false
 
 ## 安装
 
+### 启用子系统（powsershell 打开）
+
+```sh
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+````
+
 ### 列出可用发行版
 
 ```bash
