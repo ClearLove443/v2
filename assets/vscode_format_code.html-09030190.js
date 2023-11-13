@@ -1,1 +1,0 @@
-import{_ as o,V as c,W as l,Y as e,Z as t}from"./framework-637a272e.js";const s={},_=e("p",null,[e("strong",null,"使用快捷键"),e("kbd",null,"alt"),t("+"),e("kbd",null,"shift"),t("+"),e("kbd",null,"f")],-1),n=[_];function a(r,d){return c(),l("div",null,n)}const u=o(s,[["render",a],["__file","vscode_format_code.html.vue"]]);export{u as default};
