@@ -63,40 +63,48 @@ isTop: false
 
 - ssembly 插件支持将项目的所有依赖、文件都打包到同一个输出文件中。目前支持输出以下文件类型：
 
-* zip
-* tar
-* tar.gz (or tgz)
-* tar.bz2 (or tbz2)
-* tar.snappy
-* tar.xz (or txz)
-* jar
-* dir
-* war
+- zip
+- tar
+- tar.gz (or tgz)
+- tar.bz2 (or tbz2)
+- tar.snappy
+- tar.xz (or txz)
+- jar
+- dir
+- war
 
 - 在 POM.xml 中引入插件，指定打包格式的配置文件 assembly.xml(名称可自定义，可不指定，使用默认)，并指定作业的主入口类：
 
 ```xml
   <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <configuration>
-            <archive>
-              <!-- 可选，有多个main方法可以不指定 -->
-              <manifest>
-                  <mainClass>${groupId}.${artifactId}</mainClass>
-              </manifest>
-            </archive>
-            <descriptorRefs>
-              <descriptorRef>jar-with-dependencies</descriptorRef>
-
-              <!-- 可以使用默认设置-->
-              <!-- <descriptor>src/main/resources/assembly.xml</descriptor> -->
-            </descriptorRefs>
-          </configuration>
-        </plugin>
-      </plugins>
-    </build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${groupId}.${artifactId}</mainClass>
+            </manifest>
+          </archive>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <!-- 或其他适当的构建阶段 -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 ```
 
 - assembly.xml 文件内容如下：
@@ -140,7 +148,7 @@ mvn assembly:assembly
 
 - 运行命令
 
-* 单个 main 方法并且设置了 mainClass
+- 单个 main 方法并且设置了 mainClass
 
 ```bash
 java -jar jarfile
@@ -223,6 +231,28 @@ java -jar jarfile
 java -cp jarfile com.example.App
 ```
 
+### scala-maven-plugin
+
+```xml
+<plugin>
+  <groupId>net.alchim31.maven</groupId>
+  <artifactId>scala-maven-plugin</artifactId>
+  <version>4.8.1</version>
+  <executions>
+    <execution>
+      <?m2e execute onConfiguration?>
+      <goals>
+        <goal>compile</goal>
+        <goal>testCompile</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <scalaVersion>${scala.version}</scalaVersion>
+  </configuration>
+</plugin>
+```
+
 ### maven-shade-plugin 插件
 
 `maven-shade-plugin` 比 `maven-assembly-plugin` 功能更为强大，比如你的工程依赖很多的 JAR 包，而被依赖的 JAR 又会依赖其他的 JAR 包，这样,当工程中依赖到不同的版本的 JAR 时，并且 JAR 中具有相同名称的资源文件时，shade 插件会尝试将所有资源文件打包在一起时，而不是和 assembly 一样执行覆盖操作
@@ -237,6 +267,7 @@ java -cp jarfile com.example.App
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
+            <version>3.5.1</version>
             <configuration>
                 <createDependencyReducedPom>true</createDependencyReducedPom>
                 <filters>
@@ -269,16 +300,23 @@ java -cp jarfile com.example.App
                     <goal>shade</goal>
                 </goals>
                 <configuration>
-                    <!-- 打包 Spring boot 项目的时候，去掉这里的配置 -->
-                    <transformers>
-                        <transformer
-                          implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                        <transformer
-                          implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                          <!-- 可选，有多个main方法可以不指定 -->
-                          <mainClass>${groupId}.${artifactId}</mainClass>
-                        </transformer>
-                    </transformers>
+                  <!-- 打包 Spring boot 项目的时候，去掉这里的配置 -->
+                  <transformers>
+                    <!-- Merge META-INF/services files -->
+                    <transformer
+                      implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    <!-- Merge MANIFEST.MF files -->
+                    <transformer
+                      implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"/>
+                    <!-- Merge custom configuration files -->
+                    <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                      <resource>test.conf</resource>
+                    </transformer>
+                  </transformers>
+                  <!-- 可选，有多个main方法可以不指定 -->
+                  <!-- <mainClass>javademo.MongodbDemo</mainClass> -->
+                  <mainClass>scala.MongoDemo</mainClass>
                 </configuration>
             </execution>
           </executions>
@@ -302,7 +340,7 @@ mvn package
 
 - 运行命令
 
-* 单个 main 方法并且设置了 mainClass
+- 单个 main 方法并且设置了 mainClass
 
 ```bash
 java -jar jarfile
