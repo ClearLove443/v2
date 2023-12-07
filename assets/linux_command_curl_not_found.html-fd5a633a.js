@@ -1,0 +1,3 @@
+import{_ as n,V as s,W as a,a0 as e}from"./framework-73d9479b.js";const t={},c=e(`<p>执行下面命令</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">curl</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div>`,2),o=[c];function l(i,d){return s(),a("div",null,o)}const _=n(t,[["render",l],["__file","linux_command_curl_not_found.html.vue"]]);export{_ as default};
