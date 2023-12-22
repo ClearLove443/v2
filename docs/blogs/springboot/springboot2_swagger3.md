@@ -1,13 +1,19 @@
 ---
-title: "SpringBoot集成Swagger，并导出离线文档"
+title: "SpringBoot2集成Swagger，并导出离线文档"
 date: "2021-10-09 22:38:50"
-tag: [Springboot, Swagger2, Swagger3]
+tag: [Springboot2, Swagger2, Swagger3]
 category: back-end-java
 published: true
 hideInList: false
 feature:
 isTop: false
 ---
+
+## 注意
+
+springfox 不支持springboot3，并且在2020年之后停止更新。
+需要迁移到springdoc
+[Migrating from SpringFox to Springdoc](https://springdoc.org/#migrating-from-springfox)
 
 ## 前言
 
