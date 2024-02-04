@@ -1,1 +1,0 @@
-import{_ as t,V as o,W as _,Y as a}from"./framework-0db4e8b6.js";const e={},s=a("p",null,"打开开始菜单中的启动 i 项文件夹 C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup，把需要启动的文件复制到这里，电脑重启后就可以自启动了。",-1),r=[s];function c(n,l){return o(),_("div",null,r)}const d=t(e,[["render",c],["__file","windows_batch_file_to_start_automatically_at_boot.html.vue"]]);export{d as default};
