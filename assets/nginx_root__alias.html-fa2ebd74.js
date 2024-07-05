@@ -1,7 +1,0 @@
-import{_ as o,V as a,W as t,a0 as e}from"./framework-74e9649d.js";const l={},i=e(`<p>使用 root 时, 服务器里真实的资源路径是 root 的路径拼接上 location 指定的路径. 使用alias顾名思义是代指 location 的别名, 不论location 是什么, 资源的真实路径都是alias所指定的,所以location是匹配浏览器输入的地址, 真实访问的路径就是alias 指定的路径</p><p>其它区别</p><ol><li>alias 只能配置在location 中, 而root 可以配置在 server, http 和 location 中.</li><li>alias 后面必须要以 &quot;/&quot; 结尾, 否则会查找不到文件, 报404错误; 而 root 对 &quot;/&quot; 可有可无.</li></ol><p>root实例：</p><div class="language-conf line-numbers-mode" data-ext="conf"><pre class="language-conf"><code>location ^~ /t/ {
-  root /www/root/html/;
-}
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/t/a.html的文件。</p><p>alias实例：</p><div class="language-conf line-numbers-mode" data-ext="conf"><pre class="language-conf"><code>location ^~ /t/ {
-  alias /www/root/html/new_t/;
-}
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/new_t/a.html的文件。注意这里是new_t，因为alias会把location后面配置的路径丢弃掉，把当前匹配到的目录指向到指定的目录。</p>`,9),n=[i];function s(c,r){return a(),t("div",null,n)}const m=o(l,[["render",s],["__file","nginx_root__alias.html.vue"]]);export{m as default};
