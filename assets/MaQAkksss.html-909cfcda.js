@@ -1,0 +1,3 @@
+import{_ as e,V as n,W as a,a0 as t}from"./framework-7c77a285.js";const i={};function l(c,s){return n(),a("div",null,s[0]||(s[0]=[t(`<div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">apt-get</span> update
+<span class="token function">apt-get</span> <span class="token function">install</span> iputils-ping
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div>`,1)]))}const o=e(i,[["render",l],["__file","MaQAkksss.html.vue"]]);export{o as default};

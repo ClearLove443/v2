@@ -1,0 +1,1 @@
+import{_ as o,V as n,W as _,Y as t,Z as l}from"./framework-7c77a285.js";const r={};function s(a,e){return n(),_("div",null,e[0]||(e[0]=[t("p",null,[l("容器使用绝对定位"),t("code",null,"position: fixed;"),l("后, 高度就不会被计算在父容器里面。就会造成把一些元素遮挡住。 解决办法：添加一个空的容器。用来代替不被计算的容器。")],-1)]))}const f=o(r,[["render",s],["__file","html_hUR_fwtxZ.html.vue"]]);export{f as default};
