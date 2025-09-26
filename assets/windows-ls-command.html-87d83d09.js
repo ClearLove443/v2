@@ -1,3 +1,0 @@
-import{_ as s,V as n,W as a,a0 as l}from"./framework-7c77a285.js";const i={};function d(o,e){return n(),a("div",null,e[0]||(e[0]=[l(`<p>在 cmd 中输入 ls 命令出现“ls 不是内部或外部命令解决 因为与这个命令相似的功能是 dir，所以以下方法可解决：</p><ol><li>在 C：\\windows 目录下新建一个文件命名为 ls.bat</li><li>打开编辑这个文件 输入：</li></ol><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>@echo off
-<span class="token function">dir</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>这两句保存即可。</p>`,4)]))}const r=s(i,[["render",d],["__file","windows-ls-command.html.vue"]]);export{r as default};
