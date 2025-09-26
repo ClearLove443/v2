@@ -45,16 +45,16 @@ wsl --set-default-version 2
 bcdedit /set hypervisorlaunchtype auto
 ```
 
-### 安装 Ubuntu-22.04
+### 安装 Ubuntu-24.04
 
 ```bash
-wsl --install -d Ubuntu-22.04
+wsl --install -d Ubuntu-24.04
 ```
 
-### 升级 Ubuntu-22.04 可选
+### 升级 Ubuntu-24.04 可选
 
 ```bash
-wsl.exe --set-version Ubuntu-22.04 2
+wsl.exe --set-version Ubuntu-24.04 2
 ```
 
 ## 启动默认发行版
@@ -66,7 +66,7 @@ wsl
 ## 启动指定发行版
 
 ```bash
-wsl -d Ubuntu-22.04
+wsl -d Ubuntu-24.04
 ```
 
 ## 退出
@@ -84,7 +84,7 @@ wsl --shutdown
 ## 关机指定发行版
 
 ```bash
-wsl -t Ubuntu-22.04
+wsl -t Ubuntu-24.04
 ```
 
 ## 访问windows 文件
@@ -106,43 +106,43 @@ wsl -l --all  -v
 - 导出分发版为tar文件到d盘
 
 ```bash
-wsl --export Ubuntu-22.04 /d/ubuntu22.04.tar
+wsl --export Ubuntu-24.04 /g/ubuntu24.04.tar
 ```
 
 ```cmd
-wsl --export Ubuntu-22.04 d:\ubuntu22.04.tar
+wsl --export Ubuntu-24.04 g:\ubuntu24.04.tar
 ```
 
 - 注销指定分发版
 
 ```bash
-wsl --unregister Ubuntu-22.04
+wsl --unregister Ubuntu-24.04
 ```
 
-- 重新导入并安装分发版在d:ubuntu/2204
+- 重新导入并安装分发版在g:ubuntu/2204
 
 ```bash
-wsl --import Ubuntu-22.04 /d/ubuntu/2204 /d/ubuntu22.04.tar
+wsl --import Ubuntu-24.04 /g/ubuntu/2204 /g/ubuntu24.04.tar
 ```
 
 ```cmd
-wsl --import Ubuntu-22.04 d:\ubuntu\2204 d:\ubuntu22.04.tar
+wsl --import Ubuntu-24.04 g:\ubuntu\2204 g:\ubuntu24.04.tar
 ```
 
 - 设置默认登陆用户为安装时用户名
 
 ```bash
-'/C/Program Files/WindowsApps/CanonicalGroupLimited.ubuntu22.04onWindows_2004.2021.825.0_x64__79rhkp1fndgsc/ubuntu2004.exe' config --default-user ubuntu
+'/C/Program Files/WindowsApps/CanonicalGroupLimited.ubuntu24.04onWindows_2004.2021.825.0_x64__79rhkp1fndgsc/ubuntu2004.exe' config --default-user ubuntu
 ```
 
 ```bash
-'/C/Program Files/WindowsApps/CanonicalGroupLimited.ubuntu22.04onWindows_2004.2021.825.0_x64__79rhkp1fndgsc/ubuntu2004.exe' config --default-user root
+'/C/Program Files/WindowsApps/CanonicalGroupLimited.ubuntu24.04onWindows_2004.2021.825.0_x64__79rhkp1fndgsc/ubuntu2004.exe' config --default-user root
 ```
 
 - 删除tar文件(可选)
 
 ```bash
-rm /d/ubuntu22.04.tar
+rm /g/ubuntu24.04.tar
 ```
 
 ### 使用LxRunOffline
@@ -150,19 +150,19 @@ rm /d/ubuntu22.04.tar
 - 首先查看所有分发版本
 
 ```bash
-'/D/Program Files/LxRunOffline/LxRunOffline' list
+'/g/Program Files/LxRunOffline/LxRunOffline' list
 ````
 
 = 查看安装路径
 
 ```bash
-'/D/Program Files/LxRunOffline/LxRunOffline' get-dir -n Ubuntu-22.04
+'/g/Program Files/LxRunOffline/LxRunOffline' get-dir -n Ubuntu-24.04
 ```
 
 - 子系统迁移
 
 ```bash
-'/D/Program Files/LxRunOffline/LxRunOffline' move -n Ubuntu-22.04 -d /d/ubuntu/2204/
+'/g/Program Files/LxRunOffline/LxRunOffline' move -n Ubuntu-24.04 -d /g/ubuntu/2204/
 ```
 
 查询系统目录，查看是否迁移成功
